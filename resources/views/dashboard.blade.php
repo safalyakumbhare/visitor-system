@@ -1,5 +1,5 @@
 @extends('layouts.user')
-
+<title>User Dashboard</title>
 @section('content')
 
 <h1 class="mt-4">User Dashboard</h1>

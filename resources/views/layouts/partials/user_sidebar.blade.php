@@ -9,12 +9,12 @@
 
             <a class="nav-link" href="{{ url('/dashboard') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                View Food Court
+                View Guest
             </a>
 
             <a class="nav-link" href="{{ url('/dashboard') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Your Ratings
+                Visitors Dashboard
             </a>
 
     
