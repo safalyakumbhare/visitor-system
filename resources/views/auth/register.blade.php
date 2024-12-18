@@ -4,7 +4,7 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Full Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -16,8 +16,33 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <x-input-label for="phone" :value="__('Phone Number')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+        </div>
 
+        
+        <div class="mt-4">
+            <x-input-label for="alternate_phone" :value="__('Alternate Phone Number')" />
+            <x-text-input id="alternate_phone" class="block mt-1 w-full" type="number" name="alternate_phone" :value="old('alternate_phone')" required autofocus autocomplete="alternate_phone" />
+            <x-input-error :messages="$errors->get('alternate_phone')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="block" :value="__('Your Block : ')" />
+            <x-text-input id="block" class="block mt-1 w-full" type="text" name="block" :value="old('block')" required autofocus autocomplete="block" />
+            <x-input-error :messages="$errors->get('block')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="flat_no" :value="__('Your Flat No : ')" />
+            <x-text-input id="flat_no" class="block mt-1 w-full" type="text" name="flat_no" :value="old('flat_no')" required autofocus autocomplete="flat_no" />
+            <x-input-error :messages="$errors->get('flat_no')" class="mt-2" />
+        </div>
       
+
+
 
         <!-- Password -->
         <div class="mt-4">
