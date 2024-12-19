@@ -8,12 +8,15 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('user.dashboard');
 })->middleware(['auth', 'verified','rolemanager:user'])->name('dashboard');
 
 Route::get('/admin/dashboard', function () {
-    return view('admin');
+    return view('admin.admin');
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('admin');
+
+
+
 
 
 Route::get('/vendor/dashboard', function () {
@@ -27,3 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+// Route::get('admin/user-table',function(){
+//     return view('admin.user-list');
+// })->name('user-table');

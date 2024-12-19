@@ -14,6 +14,12 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    public function list()
+    {
+        $data = User::all();
+        return view('admin.user-list', compact('data'));
+    }
+
     /**
      * Display the registration view.
      */
@@ -31,9 +37,9 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'phone' => ['required', 'string', 'max:10','min:10'],
-            'alternate_phone' => ['required', 'string', 'max:10','min:10'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'phone' => ['required', 'string', 'max:10', 'min:10'],
+            'alternate_phone' => ['required', 'string', 'max:10', 'min:10'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'block' => ['required', 'string'],
             'flat_no' => ['required', 'string'],
@@ -47,7 +53,7 @@ class RegisteredUserController extends Controller
             'block' => $request->block,
             'flat_no' => $request->flat_no,
             'password' => Hash::make($request->password),
-            'password_confirmation'=> $request->password_confirmation,
+            'password_confirmation' => $request->password_confirmation,
         ]);
 
         event(new Registered($user));

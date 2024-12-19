@@ -57,3 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+// Route::get('admin/user-table',function(){
+//     return view('admin.user-list');
+// })->name('user-table');
+
+Route::get('admin/user-table',[RegisteredUserController::class,'list'])->name('admin.user-list');
