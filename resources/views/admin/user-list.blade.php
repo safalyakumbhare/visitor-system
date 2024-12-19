@@ -29,7 +29,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
-                            <td>{{ $user->alternate_number }}</td>
+                            <td>{{ $user->alternate_phone }}</td>
                             <td>{{ $user->flat_no }}</td>
                             <td>{{ $user->block }}</td>
                             <td>
