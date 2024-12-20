@@ -51,7 +51,7 @@ class RoleManager
                 return redirect()->route('vendor');
                 
             case 2:
-                return redirect()->route('user');
+                return redirect()->route('dashboard');
                 
             
         }

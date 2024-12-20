@@ -16,7 +16,7 @@ class RegisteredUserController extends Controller
 {
     public function list()
     {
-        $data = User::all();
+        $data = User::where('role', 2)->get();
         return view('admin.user-list', compact('data'));
     }
 
@@ -61,5 +61,11 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    }
+
+    public function delete($id){
+        $data = User::find($id);
+        $data->delete();
+        return redirect()->route('admin.user-list')->with('success','user deleted successfully');
     }
 }
