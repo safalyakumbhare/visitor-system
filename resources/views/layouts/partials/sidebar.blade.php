@@ -11,6 +11,11 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Users
             </a>
+            <div class="sb-sidenav-menu-heading">Visitor</div>
+            <a class="nav-link" href="{{ route('admin.add-visitor') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Add Visitor
+            </a>
             
         </div>
     </div>
