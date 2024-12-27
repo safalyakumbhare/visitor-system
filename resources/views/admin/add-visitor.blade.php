@@ -2,11 +2,12 @@
 
 <title>Add Visitor</title>
 @section('content')
+<h2 class="mt-4 text-center">Add Visitor Details</h2>
 
 
 <div class="container mt-5">
-    <form action="" method="POST" class="mt-4">
-        @csrf <!-- Laravel CSRF token for security -->
+    <form action="{{route('admin.visitor-store')}}" method="POST" class="mt-4">
+        @csrf 
 
         <!-- Visitor Name -->
         <div class="mb-3">
@@ -38,11 +39,11 @@
             <input type="time" class="form-control" id="in_time" name="in_time" required>
         </div>
 
-        <!-- Out-Time (Optional) -->
         <div class="mb-3">
-            <label for="out_time" class="form-label">Out-Time</label>
-            <input type="time" class="form-control" id="out_time" name="out_time">
+            <label for="date" class="form-label">Date of Visit</label>
+            <input type="date" class="form-control" value="{{ date('Y-m-d') }}" id="date" name="date_of_visit" required>
         </div>
+       
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Add Visitor</button>

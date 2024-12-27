@@ -16,6 +16,7 @@ class RegisteredUserController extends Controller
 {
     public function list()
     {
+        
         $data = User::where('role', 2)->get();
         return view('admin.user-list', compact('data'));
     }

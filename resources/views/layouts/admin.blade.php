@@ -12,6 +12,10 @@
 
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+
+
+
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 </head>
@@ -27,28 +31,28 @@
         </div>
 
         <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        @yield('content')
+            <main>
+                <div class="container-fluid px-4">
+                    @yield('content')
 
-                    </div>
-                </main>
+                </div>
+            </main>
 
-                @include('layouts.partials.footer')
+            @include('layouts.partials.footer')
 
 
-            </div>
         </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="{{ asset('admin/js/scripts.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-
     <script src="{{ asset('admin/js/datatables-simple-demo.js') }}"></script>
 </body>
 

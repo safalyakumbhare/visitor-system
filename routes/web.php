@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('admin/add-visitor',[VisitorController::class, 'add'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.add-visitor'); 
+
+Route::post('admin/visitor-store',[VisitorController::class, 'store'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor-store');
+
 require __DIR__.'/auth.php';
 
 
