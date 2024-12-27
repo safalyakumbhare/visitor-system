@@ -16,6 +16,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Add Visitor
             </a>
+            <a class="nav-link" href="{{ route('admin.visitor') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Visitor
+            </a>
             
         </div>
     </div>

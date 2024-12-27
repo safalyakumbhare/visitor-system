@@ -16,9 +16,6 @@ Route::get('/admin/dashboard', function () {
     return view('admin.admin');
 })->middleware(['auth', 'verified','rolemanager:admin'])->name('admin');
 
-
-
-
 Route::get('/vendor/dashboard', function () {
     return view('vendor');
 })->middleware(['auth', 'verified','rolemanager:vendor'])->name('vendor');
@@ -30,10 +27,16 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+
+require __DIR__.'/auth.php';
+
+//Visitor routes
+
 Route::get('admin/add-visitor',[VisitorController::class, 'add'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.add-visitor'); 
 
 Route::post('admin/visitor-store',[VisitorController::class, 'store'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor-store');
 
-require __DIR__.'/auth.php';
+Route::get('admin/visitor',[VisitorController::class, 'show'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor');
 
-
+Route::get('admin/visitor-out/{id}',[VisitorController::class, 'visitorout'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor-out');
