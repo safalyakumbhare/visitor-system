@@ -27,6 +27,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($visitors) == 0)
+                                    <tr>
+                                        <td colspan="7" class="text-center">No data found</td>
+                                    </tr>
+                                    @endif
                                     @foreach($visitors as $guest)
                                     <tr>
                                         <td>{{ $guest->name }}</td>

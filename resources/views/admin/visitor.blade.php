@@ -61,7 +61,10 @@
 
 
                                 <td>
+                                    @if($visitor->status == 'in')
                                     <a href="{{route('admin.visitor-out',$visitor->id)}}" data-bs-toggle="tooltip" data-bs-title="Out"><i class="fa-solid text-primary fa-arrow-right-from-bracket p-1"></i></a>
+                                    @else
+                                    @endif
                                     <a href="{{route('admin.visitor-out',$visitor->id)}}" data-bs-toggle="tooltip" data-bs-title="Remove"><i class="fa-solid fa-trash p-1 text-danger"></i></a>
 
                                 </td>

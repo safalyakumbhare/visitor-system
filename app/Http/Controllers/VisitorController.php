@@ -42,4 +42,7 @@ class VisitorController extends Controller
         $visitors = visitor::where('flat_number', $user_id)->get();
         return view('user.guest', compact('visitors'));
     }
+
+
+    
 }

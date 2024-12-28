@@ -16,7 +16,7 @@ class RegisteredUserController extends Controller
 {
     public function list()
     {
-        
+
         $data = User::where('role', 2)->get();
         return view('admin.user-list', compact('data'));
     }
@@ -64,9 +64,17 @@ class RegisteredUserController extends Controller
         return redirect(route('dashboard', absolute: false));
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $data = User::find($id);
         $data->delete();
-        return redirect()->route('admin.user-list')->with('success','user deleted successfully');
+        return redirect()->route('admin.user-list')->with('success', 'user deleted successfully');
+    }
+
+    public function user_search(Request $request)
+    {
+        $user = $request->search;
+        $data = User::where('name', 'like', '%' . $user . '%')->where('role', 2)->get();
+        return view('admin.user-list', compact('data'),['search'=>$request->search]);
     }
 }
