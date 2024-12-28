@@ -31,7 +31,8 @@ class VisitorController extends Controller
 
     public function visitorout($id){
         $visitor = visitor::find($id);
-        $visitor->update(['out_time' => now()]);
+
+        $visitor->update(['out_time' => now()->setTimezone('Asia/Kolkata')]);
         $visitor->update(['status' => 'out']);
         return redirect()->route('admin.visitor')->with('success', 'Visitor out successfully');
     }
@@ -43,6 +44,15 @@ class VisitorController extends Controller
         return view('user.guest', compact('visitors'));
     }
 
+
+    public function count()
+    {
+        $flat_no = Auth::user()->flat_no;
+        $visitors = visitor::where('flat_number', $flat_no)->count();
+        return view('user.dashboard', compact('visitors'));
+
+        
+    }
 
     
 }

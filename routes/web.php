@@ -9,9 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('user.dashboard');
-})->middleware(['auth', 'verified', 'rolemanager:user'])->name('dashboard');
+Route::get(
+    '/dashboard',
+    [VisitorController::class, 'count']
+)->middleware(['auth', 'verified', 'rolemanager:user'])->name('dashboard');
 
 Route::get('/admin/dashboard', function () {
     return view('admin.admin');
