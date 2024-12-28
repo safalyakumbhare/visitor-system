@@ -31,4 +31,6 @@ class VisitorController extends Controller
         $visitor->update(['status' => 'out']);
         return redirect()->route('admin.visitor')->with('success', 'Visitor out successfully');
     }
+
+    // public function     
 }

@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="visitorTable" class="table table-striped table-bordered">
+                    <table id="visitorTable" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Visitor Name</th>
