@@ -1,9 +1,13 @@
 <?php
 
+// namespace App\Http\Controllers\Auth;
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\visitor;
+
 class VisitorController extends Controller
 {
     public function add()
@@ -32,5 +36,10 @@ class VisitorController extends Controller
         return redirect()->route('admin.visitor')->with('success', 'Visitor out successfully');
     }
 
-    // public function     
+    public function  guest()
+    {
+        $user_id = Auth::user()->flat_no;
+        $visitors = visitor::where('flat_number', $user_id)->get();
+        return view('user.guest', compact('visitors'));
+    }
 }

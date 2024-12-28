@@ -40,3 +40,9 @@ Route::post('admin/visitor-store',[VisitorController::class, 'store'])->middlewa
 Route::get('admin/visitor',[VisitorController::class, 'show'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor');
 
 Route::get('admin/visitor-out/{id}',[VisitorController::class, 'visitorout'])->middleware(['auth', 'verified','rolemanager:admin'])->name('admin.visitor-out');
+
+
+
+// User route
+
+Route::get('user/guest',[VisitorController::class, 'guest'])->middleware(['auth', 'verified','rolemanager:user'])->name('user.guest');
