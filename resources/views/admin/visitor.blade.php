@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 <title>Visitor Dashboard</title>
+<style>
+
+</style>
 @section('content')
 <h1 class="mt-4">
     <h1 class="mt-4">Visitors Details</h1>
@@ -26,6 +29,8 @@
                                 <th>Visitor Name</th>
                                 <th>Visitor Phone</th>
                                 <th>User</th>
+                                <th>Block</th>
+                                <th>Flat Number</th>
                                 <th>Purpose</th>
                                 <th>In Time</th>
                                 <th>Out Time</th>
@@ -36,10 +41,18 @@
                         </thead>
                         <tbody>
                             @foreach($visitors as $visitor)
+                            @php
+                            $user = $user_data->firstWhere('id', $visitor->user_id);
+                            @endphp
+
                             <tr>
                                 <td>{{ $visitor->name }}</td>
                                 <td>{{ $visitor->contact }}</td>
-                                <td>{{ $visitor->user_id }}</td>
+                                <td>
+                                    {{ $user->name }}
+                                </td>
+                                <td>{{ $user->block }}</td>
+                                <td>{{ $user->flat_no }}</td>
                                 <td>{{ $visitor->purpose }}</td>
                                 <td>{{ date('h:i A', strtotime($visitor->in_time)) }}</td>
                                 <td>
@@ -66,12 +79,12 @@
                                     @endif
                                     <a href="{{route('admin.visitor-out',$visitor->id)}}" data-bs-toggle="tooltip" data-bs-title="Remove"><i class="fa-solid fa-trash p-1 text-danger"></i></a>
 
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+                {{$visitors->links()}}
             </div>
         </div>
     </div>

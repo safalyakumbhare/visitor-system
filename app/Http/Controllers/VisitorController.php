@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\visitor;
+use App\Models\User;
 
 class VisitorController extends Controller
 {
@@ -26,8 +27,9 @@ class VisitorController extends Controller
 
     public function show()
     {
-        $visitors = visitor::all();
-        return view('admin.visitor', compact('visitors'));
+        $user_data = user::where('role','2')->get();
+        $visitors = visitor::paginate(10);
+        return view('admin.visitor', compact('visitors'),compact('user_data'));
     }
 
     public function visitorout($id){
@@ -71,4 +73,6 @@ class VisitorController extends Controller
     
 
     
+
+
 }

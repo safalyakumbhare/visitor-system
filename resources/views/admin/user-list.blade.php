@@ -13,11 +13,13 @@
 
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <a href="{{route('admin.user-list')}}" class=" text-decoration-none"><h3 class="card-title text-dark">All Users</h3></a>
+                <a href="{{route('admin.user-list')}}" class=" text-decoration-none">
+                    <h3 class="card-title text-dark">All Users</h3>
+                </a>
 
                 <form action="{{route('user-search')}}" method="get">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" value="{{@$search}}" placeholder="Search">
+                        <input type="text" name="search" class="form-control" value="{{@$search}}" placeholder="Search Name">
                         <button type="submit" class="btn btn-success">Search</button>
                     </div>
                 </form>
@@ -52,6 +54,11 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        @if($data->isEmpty())
+                        <tr>
+                            <td colspan="7" class="text-center">No data found</td>
+                        </tr>
+                        @endif
                     </table>
                 </div>
             </div>
