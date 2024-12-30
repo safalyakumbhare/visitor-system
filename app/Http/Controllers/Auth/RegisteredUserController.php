@@ -46,6 +46,16 @@ class RegisteredUserController extends Controller
             'flat_no' => ['required', 'string'],
         ]);
 
+
+        $count = User::where('flat_no', $request->flat_no)
+            ->where('block', $request->block)
+            ->count();
+
+        if ($count > 0) {
+            return redirect()->route('register')->with('error', 'Flat no already exist');
+        }
+
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -75,6 +85,6 @@ class RegisteredUserController extends Controller
     {
         $user = $request->search;
         $data = User::where('name', 'like', '%' . $user . '%')->where('role', 2)->get();
-        return view('admin.user-list', compact('data'),['search'=>$request->search]);
+        return view('admin.user-list', compact('data'), ['search' => $request->search]);
     }
 }

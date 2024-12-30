@@ -10,14 +10,15 @@ use App\Models\visitor;
 
 class VisitorController extends Controller
 {
-    public function add()
+    public function add($id)
     {
-        return view('admin.add-visitor');
+        // return $id;
+        $user_id = $id;
+        return view('admin.add-visitor',compact('user_id'));
     }
 
     public function store(Request $request)
     {
-        
 
         visitor::create($request->all());
         return redirect()->route('admin.visitor')->with('success', 'Visitor added successfully');
@@ -39,20 +40,35 @@ class VisitorController extends Controller
 
     public function  guest()
     {
-        $user_id = Auth::user()->flat_no;
-        $visitors = visitor::where('flat_number', $user_id)->get();
+        $user_id = Auth::user()->id;
+        $visitors = visitor::where('user_id', $user_id)->get();
         return view('user.guest', compact('visitors'));
     }
 
 
     public function count()
     {
-        $flat_no = Auth::user()->flat_no;
-        $visitors = visitor::where('flat_number', $flat_no)->count();
-        return view('user.dashboard', compact('visitors'));
+        $user_id = Auth::user()->id;
+        $visitors_today = visitor::where('user_id', $user_id)->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
+        $visitors_in = visitor::where('user_id', $user_id)->where('status', 'in')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
+        $visitors_out = visitor::where('user_id', $user_id)->where('status', 'out')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
+        $visitors = visitor::where('user_id', $user_id)->count();
+
+        return view('user.dashboard', compact('visitors_today','visitors_in','visitors_out','visitors'));
 
         
     }
+
+
+    public function guest_today(){
+        $user_id =  Auth::user()->id;
+        $visitors_today = visitor::where('user_id', $user_id)->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->get();
+        return view('user.today_guest', compact('visitors_today'));
+    }
+
+    
+
+    
 
     
 }

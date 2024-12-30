@@ -17,16 +17,15 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h3 class="card-title">Visitors Management</h3>
-                <a href="{{ route('admin.add-visitor') }}" class="btn btn-primary">Add Visitor</a>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0 ">
                 <div class="table-responsive">
-                    <table id="visitorTable" class="table table-striped">
+                    <table id="visitorTable" class="table table-bordered  table-light  table-striped">
                         <thead>
                             <tr>
                                 <th>Visitor Name</th>
                                 <th>Visitor Phone</th>
-                                <th>Visited To Flat No.</th>
+                                <th>User</th>
                                 <th>Purpose</th>
                                 <th>In Time</th>
                                 <th>Out Time</th>
@@ -40,7 +39,7 @@
                             <tr>
                                 <td>{{ $visitor->name }}</td>
                                 <td>{{ $visitor->contact }}</td>
-                                <td>{{ $visitor->flat_number }}</td>
+                                <td>{{ $visitor->user_id }}</td>
                                 <td>{{ $visitor->purpose }}</td>
                                 <td>{{ date('h:i A', strtotime($visitor->in_time)) }}</td>
                                 <td>
@@ -50,7 +49,7 @@
                                     {{ date('h:i A',strtotime($visitor->out_time)) }}
                                     @endif
                                 </td>
-                                <td>{{ $visitor->date_of_visit }}</td>
+                                <td>{{ date('d-m-Y',strtotime($visitor->date_of_visit)) }}</td>
                                 <td>
                                     @if($visitor->status == 'in')
                                     <span class="badge text-bg-success">In</span>

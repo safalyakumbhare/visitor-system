@@ -31,8 +31,8 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Alternate Number</th>
-                                <th>Flat No.</th>
                                 <th>Block</th>
+                                <th>Flat No.</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,10 +43,11 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>{{ $user->alternate_phone }}</td>
-                                <td>{{ $user->flat_no }}</td>
                                 <td>{{ $user->block }}</td>
+                                <td>{{ $user->flat_no }}</td>
                                 <td>
-                                    <a class="m-3" href="{{route('admin.user-delete',$user->id)}}"><i class="fa-solid fa-trash text-danger"></i></a>
+                                    <a class="m-1" data-bs-toggle="tooltip" data-bs-title="Visitor In" href="{{route('admin.add-visitor',$user->id)}}"><i class="fas fa-plus text-primary"></i></a>
+                                    <a class="m-1" data-bs-toggle="tooltip" data-bs-title="Delete User" href="{{route('admin.user-delete',$user->id)}}"><i class="fa-solid fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                             @endforeach

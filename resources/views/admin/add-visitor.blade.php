@@ -29,8 +29,8 @@
 
 
         <div class="mb-3">
-            <label for="flat_number" class="form-label">Flat Number</label>
-            <input type="text" class="form-control" id="flat_number" name="flat_number" placeholder="Enter flat number" required>
+            <!-- <label for="flat_number" class="form-label">Flat Number</label> -->
+            <input type="text" class="form-control d-none" id="user_id" value="{{$user_id}}" name="user_id" placeholder="Enter flat number" required>
         </div>
 
         

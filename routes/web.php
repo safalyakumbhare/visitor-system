@@ -11,8 +11,9 @@ Route::get('/', function () {
 
 Route::get(
     '/dashboard',
-    [VisitorController::class, 'count']
+    [VisitorController::class, 'count'],
 )->middleware(['auth', 'verified', 'rolemanager:user'])->name('dashboard');
+
 
 Route::get('/admin/dashboard', function () {
     return view('admin.admin');
@@ -36,11 +37,12 @@ require __DIR__ . '/auth.php';
 
 //admin routes
 
-Route::get('user-search', [RegisteredUserController::class, 'user_search'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('user-search');
+Route::get('user-search', [RegisteredUserController::class, 'user_search'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('user-search');    
 
 //Visitor routes
 
-Route::get('admin/add-visitor', [VisitorController::class, 'add'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.add-visitor');
+Route::get('admin/add-visitor/{id?}', [VisitorController::class, 'add'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.add-visitor');
+
 
 Route::post('admin/visitor-store', [VisitorController::class, 'store'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-store');
 
@@ -53,3 +55,6 @@ Route::get('admin/visitor-out/{id}', [VisitorController::class, 'visitorout'])->
 // User route
 
 Route::get('user/guest', [VisitorController::class, 'guest'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.guest');
+
+
+Route::get('user/todays_guest',[VisitorController::class,'guest_today'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.todays_guest');

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('contact');
             $table->string('purpose');
-            $table->string('flat_number');
+            $table->string('user_id');
             $table->Time('in_time');
             $table->Time('out_time')->nullable();
             $table->date('date_of_visit');
