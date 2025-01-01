@@ -17,7 +17,7 @@ class RegisteredUserController extends Controller
     public function list()
     {
 
-        $data = User::where('role', 2)->get();
+        $data = User::where('role', 2)->paginate(10);
         return view('admin.user-list', compact('data'));
     }
 
@@ -84,7 +84,7 @@ class RegisteredUserController extends Controller
     public function user_search(Request $request)
     {
         $user = $request->search;
-        $data = User::where('name', 'like', '%' . $user . '%')->where('role', 2)->get();
+        $data = User::where('name', 'like', '%' . $user . '%')->where('role', 2)->paginate(10);
         return view('admin.user-list', compact('data'), ['search' => $request->search]);
     }
 }

@@ -47,15 +47,15 @@
                                         </td>
                                         <td>{{ date('d-m-Y',strtotime($guest->date_of_visit) )}}</td>
                                         <td>
-                                    @if($guest->status == 'in')
-                                    <span class="badge text-bg-success">In</span>
-                                    @else
-                                    <span class="badge text-bg-danger">Out</span>
+                                            @if($guest->status == 'in')
+                                            <span class="badge text-bg-success">In</span>
+                                            @else
+                                            <span class="badge text-bg-danger">Out</span>
 
-                                    @endif
+                                            @endif
 
 
-                                <td>
+                                        <td>
                                     </tr>
                                     @endforeach
                                 </tbody>
