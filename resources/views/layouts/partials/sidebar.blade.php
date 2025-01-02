@@ -20,6 +20,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Visitor
             </a>
+            <a class="nav-link" href="{{ route('admin.visitor-in') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Visitor In
+            </a>
             
         </div>
     </div>

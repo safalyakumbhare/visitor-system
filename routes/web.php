@@ -39,6 +39,8 @@ require __DIR__ . '/auth.php';
 
 Route::get('user-search', [RegisteredUserController::class, 'user_search'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('user-search');    
 
+Route::get('admin/visitor-in',[VisitorController::class,'visitor_in'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-in');
+
 //Visitor routes
 
 Route::get('admin/add-visitor/{id?}', [VisitorController::class, 'add'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.add-visitor');

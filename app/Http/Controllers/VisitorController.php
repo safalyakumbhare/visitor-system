@@ -22,7 +22,7 @@ class VisitorController extends Controller
     {
 
         visitor::create($request->all());
-        return redirect()->route('admin.visitor')->with('success', 'Visitor added successfully');
+        return redirect()->route('admin.visitor-in')->with('success', 'Visitor added successfully');
     }
 
     public function show()
@@ -51,10 +51,13 @@ class VisitorController extends Controller
     public function count()
     {
         $user_id = Auth::user()->id;
-        $visitors_today = visitor::where('user_id', $user_id)->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
+        $visitors_today = visitor::where('user_id', $user_id)->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->get();
         $visitors_in = visitor::where('user_id', $user_id)->where('status', 'in')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
         $visitors_out = visitor::where('user_id', $user_id)->where('status', 'out')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
         $visitors = visitor::where('user_id', $user_id)->count();
+
+        
+        
 
         return view('user.dashboard', compact('visitors_today','visitors_in','visitors_out','visitors'));
 
@@ -68,7 +71,12 @@ class VisitorController extends Controller
         return view('user.today_guest', compact('visitors_today'));
     }
 
-    
+    public function visitor_in(){
+        $user_data = user::where('role','2')->get();
+
+        $visitors_in = visitor::where('status', 'in')->paginate(10);
+        return view('admin.visitor-in', compact('visitors_in','user_data'));
+    }
 
     
 
