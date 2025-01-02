@@ -15,9 +15,7 @@ Route::get(
 )->middleware(['auth', 'verified', 'rolemanager:user'])->name('dashboard');
 
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.admin');
-})->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin');
+Route::get('admin/dashboard',[VisitorController::class,'admin_count'])->middleware(['auth','verified', 'rolemanager:admin'])->name('admin');
 
 Route::get('/vendor/dashboard', function () {
     return view('vendor');
@@ -40,6 +38,8 @@ require __DIR__ . '/auth.php';
 Route::get('user-search', [RegisteredUserController::class, 'user_search'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('user-search');    
 
 Route::get('admin/visitor-in',[VisitorController::class,'visitor_in'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-in');
+
+Route::get('admin/visitor-today',[VisitorController::class,'visitor_today'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-today');
 
 //Visitor routes
 

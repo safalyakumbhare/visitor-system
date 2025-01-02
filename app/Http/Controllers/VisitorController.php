@@ -27,8 +27,9 @@ class VisitorController extends Controller
 
     public function show()
     {
-        $user_data = user::where('role','2')->get();
-        $visitors = visitor::paginate(10);
+        $user_data = user::where('role', '2')->get();
+        $visitors = visitor::orderBy('created_at', 'desc')->paginate(10);
+        // $visitors = visitor::paginate(10);
         return view('admin.visitor', compact('visitors'),compact('user_data'));
     }
 
@@ -78,9 +79,23 @@ class VisitorController extends Controller
         return view('admin.visitor-in', compact('visitors_in','user_data'));
     }
 
+
+    public function admin_count(){
+
+        $user = User::where('role',2)->count();
+        $visitor = visitor::count();
+        $visitor_in = visitor::where('status','in')->count();
+        $visitor_today = visitor::whereDate('date_of_visit',now()->setTimezone('Asia/Kolkata'))->count();
+
+        return view('admin.admin', compact('user','visitor','visitor_in','visitor_today'));
+    }
     
 
-    
+    public function visitor_today(){
+        $user_data = user::where('role','2')->get();
+        $visitors_today = visitor::orderBy('created_at','desc')->whereDate('date_of_visit',now()->setTimezone('Asia/Kolkata'))->paginate(10);
+        return view('admin.visitor-today', compact('visitors_today','user_data'));
+    }
 
 
 }

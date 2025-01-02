@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-<title>Visitor Dashboard</title>
+<title>Visitor Today</title>
 <style>
 
 </style>
 @section('content')
 <h1 class="mt-4">
-    <h1 class="mt-4">Visitors Details</h1>
+    <h1 class="mt-4">Today's Visitor</h1>
 </h1>
 
 
@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($visitors as $visitor)
+                            @foreach($visitors_today as $visitor)
                             @php
                             $user = $user_data->firstWhere('id', $visitor->user_id);
                             @endphp
@@ -84,7 +84,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{$visitors->links('pagination::bootstrap-5')}}
+                {{$visitors_today->links()}}
             </div>
         </div>
     </div>
