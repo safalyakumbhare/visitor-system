@@ -20,6 +20,16 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h3 class="card-title">Visitors Management</h3>
+
+                {{--<form action="{{route('admin-visitor-user-search')}}" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Search User" value="{{Request::get('search')}}">
+
+                        <button class="btn btn-primary" type="submit">Search</button>
+
+                    </div>
+                </form>
+--}}
             </div>
             <div class="card-body p-0 ">
                 <div class="table-responsive">

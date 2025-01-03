@@ -81,10 +81,17 @@
 
                             </tr>
                             @endforeach
+
+                            @if ($visitors_today->isEmpty())
+                            <tr>
+                                <td colspan="11" class="text-center">No Visitor Today</td>
+                            </tr>
+                            
+                            @endif
                         </tbody>
                     </table>
                 </div>
-                {{$visitors_today->links()}}
+                {{$visitors_today->links('pagination::bootstrap-5')}}
             </div>
         </div>
     </div>

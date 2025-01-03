@@ -50,6 +50,7 @@
                                 <td>
                                     <a class="m-1" data-bs-toggle="tooltip" data-bs-title="Visitor In" href="{{route('admin.add-visitor',$user->id)}}"><i class="fas fa-plus text-primary"></i></a>
                                     <a class="m-1" data-bs-toggle="tooltip" data-bs-title="Delete User" href="{{route('admin.user-delete',$user->id)}}"><i class="fa-solid fa-trash text-danger"></i></a>
+                                    <a class="m-1" data-bs-toggle="tooltip" data-bs-title="View Visitors" href="{{route('admin.user-visitor',$user->id)}}"><i class="fa-regular fa-eye text-success"></i></a>
                                 </td>
                             </tr>
                             @endforeach

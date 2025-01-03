@@ -41,7 +41,7 @@
 
         <div class="mb-3">
             <label for="date" class="form-label">Date of Visit</label>
-            <input type="date" class="form-control" value="{{ date('Y-m-d') }}" id="date" name="date_of_visit" required>
+            <input type="date" class="form-control" value="{{ \Carbon\Carbon::now()->setTimezone('Asia/Kolkata')->format('Y-m-d') }}" id="date" name="date_of_visit" required>
         </div>
        
 

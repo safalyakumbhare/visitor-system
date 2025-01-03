@@ -41,6 +41,9 @@ Route::get('admin/visitor-in',[VisitorController::class,'visitor_in'])->middlewa
 
 Route::get('admin/visitor-today',[VisitorController::class,'visitor_today'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-today');
 
+Route::get('admin/visitor-user-search',[VisitorController::class,'visitor_user_search'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin-visitor-user-search');
+
+
 //Visitor routes
 
 Route::get('admin/add-visitor/{id?}', [VisitorController::class, 'add'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.add-visitor');
@@ -52,7 +55,7 @@ Route::get('admin/visitor', [VisitorController::class, 'show'])->middleware(['au
 
 Route::get('admin/visitor-out/{id}', [VisitorController::class, 'visitorout'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.visitor-out');
 
-
+Route::get('admin/user-visitor/{id}', [VisitorController::class, 'user_visitor'])->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin.user-visitor');
 
 // User route
 
@@ -60,3 +63,4 @@ Route::get('user/guest', [VisitorController::class, 'guest'])->middleware(['auth
 
 
 Route::get('user/todays_guest',[VisitorController::class,'guest_today'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.todays_guest');
+

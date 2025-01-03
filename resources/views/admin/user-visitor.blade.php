@@ -1,12 +1,10 @@
 @extends('layouts.admin')
 
-<title>Visitor In </title>
-<style>
+<title>User Visitors</title>
 
-</style>
 @section('content')
 <h1 class="mt-4">
-    <h1 class="mt-4">Visitors In</h1>
+    <h1 class="mt-4">{{$user_name->name}}'s Visitors </h1>
 </h1>
 
 
@@ -20,6 +18,8 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h3 class="card-title">Visitors Management</h3>
+
+           
             </div>
             <div class="card-body p-0 ">
                 <div class="table-responsive">
@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($visitors_in as $visitor)
+                            @foreach($visitors as $visitor)
                             @php
                             $user = $user_data->firstWhere('id', $visitor->user_id);
                             @endphp
@@ -81,16 +81,10 @@
 
                             </tr>
                             @endforeach
-
-                            @if ($visitors_in->isEmpty())
-                            <tr>
-                                <td colspan="11" class="text-center">No Visitors In</td>
-                            </tr>
-                            @endif
                         </tbody>
                     </table>
                 </div>
-                {{$visitors_in->links('pagination::bootstrap-5')}}
+                {{$visitors->links('pagination::bootstrap-5')}}
             </div>
         </div>
     </div>

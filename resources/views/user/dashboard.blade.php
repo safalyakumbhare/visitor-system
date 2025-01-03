@@ -12,7 +12,7 @@
         <div class="card bg-primary text-white mb-4">
             <div class="card-body d-flex justify-content-between align-items-end flex-column">
                 <h3>Today's Guest</h3>
-                <h5 class="mb-0">{{count($visitors_today)}}</h5>
+                <h4 class="mb-0">{{count($visitors_today)}}</h4>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" href="{{route('user.todays_guest')}}">View Details</a>
@@ -23,8 +23,8 @@
     <div class="col-xl-3 col-md-6">
         <div class="card bg-success text-white mb-4">
             <div class="card-body d-flex justify-content-between align-items-end flex-column">
-                <h3>Guest In</h3>
-                <h5 class="mb-0">{{$visitors_in}}</h5>
+                <h3>Today's Guest In</h3>
+                <h4 class="mb-0">{{$visitors_in}}</h4>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" href="{{route('user.todays_guest')}}">View Details</a>
@@ -35,8 +35,8 @@
     <div class="col-xl-3 col-md-6">
         <div class="card bg-danger text-white mb-4">
             <div class="card-body d-flex justify-content-between align-items-end flex-column">
-                <h3>Guest Out</h3>
-                <h5 class="mb-0">{{$visitors_out}}</h5>
+                <h3>Today's Guest Out</h3>
+                <h4 class="mb-0">{{$visitors_out}}</h4>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" href="#">View Details</a>
@@ -48,7 +48,7 @@
         <div class="card bg-warning text-white mb-4">
             <div class="card-body d-flex justify-content-between align-items-end flex-column">
                 <h3>Total Guest</h3>
-                <h5 class="mb-0">{{$visitors}}</h5>
+                <h4 class="mb-0">{{$visitors}}</h4>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" href="#">View Details</a>
