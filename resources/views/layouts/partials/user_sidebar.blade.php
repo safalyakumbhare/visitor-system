@@ -12,9 +12,13 @@
                 View Guest
             </a>
 
-            <a class="nav-link" href="{{ url('/dashboard') }}">
+            <a class="nav-link" href="{{route('user.guest-in')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Visitors Dashboard
+                Visitors In
+            </a>
+            <a class="nav-link" href="{{route('user.guest-out')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Visitors Out
             </a>
         </div>
     </div>

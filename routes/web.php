@@ -64,3 +64,6 @@ Route::get('user/guest', [VisitorController::class, 'guest'])->middleware(['auth
 
 Route::get('user/todays_guest',[VisitorController::class,'guest_today'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.todays_guest');
 
+Route::get('user/guest-in',[VisitorController::class,'guest_in'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.guest-in');
+
+Route::get('user/guest-out',[VisitorController::class,'guest_out'])->middleware(['auth', 'verified', 'rolemanager:user'])->name('user.guest-out');

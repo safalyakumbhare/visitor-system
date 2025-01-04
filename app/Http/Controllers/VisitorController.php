@@ -53,8 +53,8 @@ class VisitorController extends Controller
     {
         $user_id = Auth::user()->id;
         $visitors_today = visitor::where('user_id', $user_id)->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->get();
-        $visitors_in = visitor::where('user_id', $user_id)->where('status', 'in')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
-        $visitors_out = visitor::where('user_id', $user_id)->where('status', 'out')->whereDate('created_at', now()->setTimezone('Asia/Kolkata'))->count();
+        $visitors_in = visitor::where('user_id', $user_id)->where('status', 'in')->count();
+        $visitors_out = visitor::where('user_id', $user_id)->where('status', 'out')->count();
         $visitors = visitor::where('user_id', $user_id)->count();
 
         
@@ -109,5 +109,17 @@ class VisitorController extends Controller
         $user_name = user::where('id',$id)->first();
         $visitors = visitor::where('user_id',$id)->paginate(10);
         return view('admin.user-visitor', compact('visitors' ,'user_data','user_name'));
+    }
+
+    public function guest_in(){
+        $user_id = Auth::user()->id;
+        $visitors_in = visitor::where('user_id', $user_id)->where('status', 'in')->get();
+        return view('user.guest-in', compact('visitors_in'));
+    }
+
+    public function guest_out(){
+        $user_id = Auth::user()->id;
+        $visitors_out = visitor::where('user_id', $user_id)->where('status', 'out')->whereDate('created_at',now()->setTimezone('Asia/Kolkata'))->get();
+        return view('user.guest-out', compact('visitors_out'));
     }
 }
