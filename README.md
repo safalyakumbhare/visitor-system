@@ -91,4 +91,4 @@ Follow these steps to set up the project locally:
 
 
 
-For any inquiries or feedback, please reach out to [your-safalyakumbhare@gmail.com].
+For any inquiries or feedback, please reach out to [safalyakumbhare@gmail.com].
