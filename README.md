@@ -3,13 +3,32 @@
 A web-based application designed to streamline the process of managing visitor activities in a flat society. This system enhances security, improves monitoring, and simplifies access to visitor records for admins and flat owners.
 
 ## User Interface 👨‍💻
-
-<img src="screenshots/login.png" alt="Project_Screenshots" width="400" height="200">
-<img src="screenshots/register.png" alt="Project_Screenshots" width="400" height="200">
-<img src="screenshots/admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
-<img src="screenshots/users-admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
-<img src="screenshots/visitors-monitor-page.png" alt="Project_Screenshots" width="400" height="200">
-<img src="screenshots/user-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+<ol>
+    <li>
+        <p>Login Page</p>
+        <img src="screenshots/login.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+    <li>
+        <p>User Registration Page</p>
+        <img src="screenshots/register.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+    <li>
+        <p>Admin Dashboard</p>
+        <img src="screenshots/admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+    <li>
+        <p>Admin's (Flat Owners Monitor Page)</p>
+        <img src="screenshots/users-admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+    <li>
+        <p>Admin's {Visitors Monitoring Page)</p>
+        <img src="screenshots/visitors-monitor-page.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+    <li>
+        <p>User Dashboard</p>
+        <img src="screenshots/user-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+    </li>
+</ol>
 
 
 ## Technologies Used
