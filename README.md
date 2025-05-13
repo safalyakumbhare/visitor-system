@@ -2,6 +2,22 @@
 
 A web-based application designed to streamline the process of managing visitor activities in a flat society. This system enhances security, improves monitoring, and simplifies access to visitor records for admins and flat owners.
 
+## User Interface 👨‍💻
+
+<img src="screenshots/login.png" alt="Project_Screenshots" width="400" height="200">
+<img src="screenshots/register.png" alt="Project_Screenshots" width="400" height="200">
+<img src="screenshots/admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+<img src="screenshots/users-admin-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+<img src="screenshots/visitors-monitor-page.png" alt="Project_Screenshots" width="400" height="200">
+<img src="screenshots/user-dashboard.png" alt="Project_Screenshots" width="400" height="200">
+
+
+## Technologies Used
+
+- **Frontend:** Bootstrap 5, AJAX
+- **Backend:** Core Laravel 11
+- **Database:** MySQL
+
 ---
 
 ## Features
@@ -23,13 +39,8 @@ A web-based application designed to streamline the process of managing visitor a
 
 ---
 
-## Technologies Used
 
-- **Backend:** Core Laravel 11
-- **Frontend:** Bootstrap 5, AJAX
-- **Database:** MySQL
 
----
 
 ## Installation
 
